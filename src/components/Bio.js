@@ -1,41 +1,66 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import styled from 'styled-components'
 
-// Import typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
-
-import profilePic from './profile-pic.jpg'
-import { rhythm } from '../utils/typography'
+import profilePic from '../assets/profile-pic.jpg'
+import { rhythm, scale } from '../utils/typography'
 
 class Bio extends React.Component {
   render() {
     return (
-      <div
-        style={{
-          display: 'flex',
-          marginBottom: rhythm(2.5),
-        }}
-      >
-        <img
-          src={profilePic}
-          alt={`Kyle Mathews`}
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            width: rhythm(2),
-            height: rhythm(2),
-          }}
-        />
-        <p>
-          Written by <strong>Kyle Mathews</strong> who lives and works in San
-          Francisco building useful things.{' '}
-          <a href="https://twitter.com/kylemathews">
-            You should follow him on Twitter
-          </a>
-        </p>
-      </div>
+      <Fragment>
+        <StyledBioContainer>
+          <StyledImage src={profilePic} alt="Paul Chong" />
+          <StyledName>Paul Chong</StyledName>
+          <StyledSubtitle>software engineer</StyledSubtitle>
+          <StyledParagraph>passionate about the web and tacos</StyledParagraph>
+        </StyledBioContainer>
+        <StyledHorizontalRule />
+      </Fragment>
     )
   }
 }
 
 export default Bio
+
+const StyledBioContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: ${rhythm(1.5)};
+  max-width: 300px;
+`
+
+const StyledImage = styled.img`
+  align-self: center;
+  height: ${rhythm(4)};
+  margin-bottom: ${rhythm(0.25)};
+  width: ${rhythm(4)};
+`
+
+const StyledName = styled.h1`
+  align-self: center;
+  margin-bottom: 0;
+
+  @media (min-width: 768px) {
+    font-size: ${rhythm(1.5)};
+  }
+`
+
+const StyledSubtitle = styled.p`
+  align-self: center;
+  margin-bottom: 0;
+`
+
+const StyledParagraph = styled.p`
+  align-self: center;
+  font-size: ${rhythm(0.4)};
+  margin-bottom: 0;
+`
+
+const StyledHorizontalRule = styled.hr`
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #fff, #ccc, #fff);
+  margin-bottom: ${rhythm(2)};
+`
