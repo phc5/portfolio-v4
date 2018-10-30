@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 
 import Nav from '../components/Nav'
 import Layout from '../components/layout'
@@ -24,20 +25,28 @@ class Blog extends React.Component {
           {posts.map(({ node }) => {
             const title = get(node, 'frontmatter.title')
             const url = get(node, 'frontmatter.url')
+            const timeToRead = get(node, 'frontmatter.timeToRead')
+
             return (
-              <div key={title}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <a href={url} target="_blank" rel="noreferrer noopener">
-                    {title}
-                  </a>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              </div>
+              <Fragment>
+                <div key={title}>
+                  <h3
+                    style={{
+                      marginBottom: rhythm(1 / 4),
+                    }}
+                  >
+                    <a href={url} target="_blank" rel="noreferrer noopener">
+                      {title}
+                    </a>
+                  </h3>
+                  <small>
+                    {node.frontmatter.date} • {timeToRead}
+                  </small>
+                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                </div>
+
+                <StyledHorizontalRule />
+              </Fragment>
             )
           })}
         </Layout>
@@ -64,9 +73,18 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM, YYYY")
             title
             url
+            timeToRead
           }
         }
       }
     }
   }
+`
+
+const StyledHorizontalRule = styled.hr`
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ddd, #ccc, #ddd);
+  margin-bottom: ${rhythm(2)};
 `

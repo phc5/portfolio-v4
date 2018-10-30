@@ -2,6 +2,7 @@
 title: Implementing QuickSort in JavaScript
 date: '2017-03-04'
 url: 'https://medium.com/@paulhyunchong/implementing-quick-sort-in-javascript-3f7f697898f8'
+timeToRead: '2 min read'
 ---
 
 Reading this definition from Wikipedia didn’t really help me. So allow me to explain if you still don’t understand quick sort after reading Wikipedia or Googling it.
