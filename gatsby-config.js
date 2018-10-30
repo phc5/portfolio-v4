@@ -1,9 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: 'Paul Chong | Software Engineer',
+    author: 'Paul Chong',
+    description: "Paul Chong's portfolio",
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -54,7 +53,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`,
+        icon: `src/assets/profile-pic.jpg`,
       },
     },
     `gatsby-plugin-offline`,

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 import { rhythm } from '../utils/typography'
 
@@ -43,7 +44,8 @@ export default () => (
         >
           instagram
         </a>
-        , <a href="mailto:paulhyunchong@gmail.com">email</a>
+        , <Link to="/blog">blog</Link>,{' '}
+        <a href="mailto:paulhyunchong@gmail.com">email</a>
       </p>
     </StyledSocialDiv>
   </StyledGrid>

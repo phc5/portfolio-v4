@@ -7,13 +7,8 @@ import Nav from '../components/Nav'
 import Layout from '../components/layout'
 import { rhythm } from '../utils/typography'
 
-class BlogIndex extends React.Component {
+class Blog extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const siteDescription = get(
-      this,
-      'props.data.site.siteMetadata.description'
-    )
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
 
     return (
@@ -22,22 +17,23 @@ class BlogIndex extends React.Component {
         <Layout location={this.props.location}>
           <Helmet
             htmlAttributes={{ lang: 'en' }}
-            meta={[{ name: 'description', content: siteDescription }]}
-            title={siteTitle}
+            meta={[{ name: 'description', content: "Paul Chong's portfolio" }]}
+            title="Paul Chong's Blogs"
           />
 
           {posts.map(({ node }) => {
-            const title = get(node, 'frontmatter.title') || node.fields.slug
+            const title = get(node, 'frontmatter.title')
+            const url = get(node, 'frontmatter.url')
             return (
-              <div key={node.fields.slug}>
+              <div key={title}>
                 <h3
                   style={{
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+                  <a href={url} target="_blank" rel="noreferrer noopener">
                     {title}
-                  </Link>
+                  </a>
                 </h3>
                 <small>{node.frontmatter.date}</small>
                 <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
@@ -50,7 +46,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default Blog
 
 export const pageQuery = graphql`
   query {
@@ -64,12 +60,10 @@ export const pageQuery = graphql`
       edges {
         node {
           excerpt
-          fields {
-            slug
-          }
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            url
           }
         }
       }
