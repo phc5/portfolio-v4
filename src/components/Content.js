@@ -2,24 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
+import ContentDiv from './ContentDiv'
 import { rhythm } from '../utils/typography'
 
 export default () => (
   <StyledGrid>
-    <div>
-      <h4>stuff i like to use</h4>
-      <p>javascript, react, graphql, node.js, aws, css, python</p>
-    </div>
-    <div>
-      <h4>places i've worked</h4>
-      <p>kelley blue book, salespad</p>
-    </div>
-    <div>
-      <h4>interests</h4>
-      <p>travel, sports, food, stocks, cars, video games, calisthenics</p>
-    </div>
+    <ContentDiv
+      title="stuff i like to use"
+      content="javascript, react, graphql, node.js, aws, css, python"
+      color="rgba(255, 245, 157, 0.8)"
+    />
+    <ContentDiv
+      title="places i've worked"
+      content="kelley blue book, salespad"
+      color="rgba(165, 214, 167, 0.8)"
+    />
+    <ContentDiv
+      title="interests"
+      content="travel, sports, food, stocks, cars, video games, calisthenics"
+      color="rgba(255, 204, 128, 0.8)"
+    />
     <StyledSocialDiv>
-      <h4>contact and social</h4>
+      <h4>
+        <span>contact and social</span>
+      </h4>
       <p>
         <a
           href="https://github.com/phc5"
@@ -60,10 +66,6 @@ const StyledGrid = styled.div`
     grid-template-rows: 50% 50%;
     grid-gap: ${rhythm(2)};
   }
-
-  h4 {
-    margin-bottom: ${rhythm(0.25)};
-  }
 `
 const StyledSocialDiv = styled.div`
   a {
@@ -71,6 +73,20 @@ const StyledSocialDiv = styled.div`
 
     &:hover {
       color: rgba(34, 34, 34, 0.4);
+    }
+  }
+
+  h4 {
+    margin-bottom: ${rhythm(0.25)};
+    user-select: none;
+
+    span {
+      background-image: linear-gradient(
+        -100deg,
+        rgba(255, 255, 255, 0),
+        rgba(129, 212, 250, 0.8) 80%,
+        rgba(255, 255, 255, 0)
+      );
     }
   }
 `
