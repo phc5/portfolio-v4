@@ -22,19 +22,9 @@ class Index extends React.Component {
           <Bio />
           <Content />
         </Layout>
-        <StyledFooter>Made with ❤️ by me.</StyledFooter>
       </Fragment>
     )
   }
 }
 
 export default Index
-
-const StyledFooter = styled.div`
-  margin: 0 ${rhythm(0.5)};
-  text-align: center;
-
-  @media (min-width: 768px) {
-    text-align: right;
-  }
-`

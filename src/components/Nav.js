@@ -5,15 +5,15 @@ import { rhythm } from '../utils/typography'
 
 export default () => (
   <StyledNav>
-    <Link to="/">Home</Link>
+    <Link to="/">home</Link>
     <a
       href="https://www.github.com/phc5"
       target="_blank"
       rel="noreferrer noopener"
     >
-      GitHub
+      github
     </a>
-    <Link to="/blog">Blog</Link>
+    <Link to="/blog">blog</Link>
   </StyledNav>
 )
 

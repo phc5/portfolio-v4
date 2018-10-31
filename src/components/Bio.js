@@ -10,7 +10,7 @@ class Bio extends React.Component {
       <Fragment>
         <StyledBioContainer>
           <StyledImage src={profilePic} alt="Paul Chong" />
-          <StyledName>Paul Chong</StyledName>
+          <StyledName>paul chong</StyledName>
           <StyledSubtitle>software engineer</StyledSubtitle>
           <StyledParagraph>passionate about the web and tacos</StyledParagraph>
         </StyledBioContainer>
