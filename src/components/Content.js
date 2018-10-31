@@ -50,6 +50,14 @@ export default () => (
         >
           instagram
         </a>
+        ,{' '}
+        <a
+          href="https://linkedin.com/in/paulhchong"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          linkedin
+        </a>
         , <Link to="/blog">blog</Link>,{' '}
         <a href="mailto:paulhyunchong@gmail.com">email</a>
       </p>

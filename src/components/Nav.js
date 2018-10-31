@@ -19,8 +19,12 @@ export default () => (
 
 const StyledNav = styled.nav`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin: ${rhythm(0.5)};
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+  }
 
   a {
     color: rgba(34, 34, 34, 1);

@@ -40,10 +40,7 @@ const StyledImage = styled.img`
 const StyledName = styled.h1`
   align-self: center;
   margin-bottom: 0;
-
-  @media (min-width: 768px) {
-    font-size: ${rhythm(1.5)};
-  }
+  font-size: ${rhythm(1.35)};
 `
 
 const StyledSubtitle = styled.p`
